@@ -1,0 +1,38 @@
+spring.datasource.url – Definuje, k jakému
+	databázovému stroji se připojujeme (v našem případě MariaDB). Dále
+	definuje, kde se tento databázový stroj nachází (v našem případě na
+	našem lokálním počítači – tedy localhost). Následuje
+	název databáze, ke které se připojujeme (v našem případě
+	blog). Částí za otazníkem říkáme, že se databáze má
+	automaticky vytvořit, pokud nebude existovat (toto nastavení je specifické
+	pouze pro MySQL a MariaDB).
+
+spring.datasource.username – Definuje
+	uživatelské jméno, výchozí uživatel je root.
+
+spring.datasource.password – Definuje
+	uživatelské heslo. Výchozí nastavení MariaDB v XAMPPu je prázdné
+	heslo.
+
+spring.datasource.driver-class-name –
+	Definuje, jaký ovladač (JDBC implementaci) chceme používat. Hodnota tohoto
+	klíče odkazuje na existující Java třídu, kterou jsme stáhli pomocí
+	Mavenu.
+
+spring.jpa.hibernate.ddl-auto – Definuje, co
+	se má stát se schématem naší databáze po spuštění aplikace. V našem
+	případě, říkáme, že po každém spuštění aplikace chceme aktualizovat
+	schéma databáze podle entit, které v projektu máme (momentálně žádné
+	nemáme).
+
+Doporučená (volitelná) nastavení
+
+spring.jpa.show-sql – Tímto říkáme, že
+	chceme vypisovat SQL příkazy, které JPA vygeneruje a spustí za nás.
+	Doporučuji si toto nastavení ponechat. Lépe se pak aplikace ladí a celý
+	koncept ORM a JPA bude působit méně abstraktně.
+
+spring.jpa.properties.hibernate.format_sql –
+	Tímto říkáme, že vypsaný SQL kód chceme zformátovat a odsadit, aby byl
+	lépe čitelný.
+

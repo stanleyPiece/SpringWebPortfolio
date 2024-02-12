@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cz.itnetwork</groupId>
+    <artifactId>SpringBlog</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Odkaz na implementaci Spring Boot (knihovna pro vytváření webových aplikací v Javě) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- Odkaz na implementaci Thymeleaf (šablonovací systém pro vykreslování HTML na straně serveru) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- Odkaz na implementaci validace formulářových polí -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- Odkaz na implementaci JPA (ve výchozím nastavení Hibernate) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- Odkaz na implementaci JDBC (ovladače k databázi) -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+        <!-- Odkaz na knihovnu MapStruct (pro namapování ukládání dat do atributů entity (třídy reprezentující záznam v databází)) -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.3.Final</version>
+        </dependency>
+        <!-- Odkaz na knihovnu Spring Boot Security (logika pro autentizaci a autorizaci) -->
+        <!-- Ve výchozím nastavení Spring Security se po spuštění projektu
+             vygeneruje jeden uživatel s náhodným heslem. Po vypnutí se tento
+             uživatel smaže a při opětovném zapnutí se nám vygeneruje nový uživatel
+             s jiným heslem. Uživatelské jméno k vygenerovaným účtům
+             je pokaždé user a heslo se vždy vypíše do konzole. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- Odkaz na knihovnu Thymeleaf Extras pro schování tlačítek pro správu článků (Vytvořit nový, Editovat a Odstranit)
+             a pro přidání odkazů pro registraci a přihlášení do navigace -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+            <version>3.1.1.RELEASE</version>
+        </dependency>
+    </dependencies>
+    <!-- skript na generování dat, který se má spustit při kompilaci (sestavení) projektu -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.3.Final</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

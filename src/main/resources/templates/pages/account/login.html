@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+
+    <body>
+        <header th:replace="~{fragments/layout.html :: header}"></header>
+
+        <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div> <!-- flash zpráva -->
+        <div class="py-2 flash-message message-error" th:if="${param.error}">Neplatný e-mail nebo heslo.</div> <!-- flash zpráva -->
+
+        <article>
+                <header>
+                    <h1>Přihlášení</h1>
+                </header>
+
+                <section>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            <!-- Akce formuláře je nastavena na URL adresu /account/login, ale posílá se pomocí HTTP metody
+	                            [POST]. Obsluhu tohoto formuláře (kontrolu, zda	kombinace uživatelského emailu a hesla je v pořádku) za nás řeší Spring. -->
+                            <form th:action="@{/account/login}" method="post" class="d-flex flex-column gap-2">
+                                <div class="form-group">
+                                    <label for="email">Uživatelský e-mail</label>
+                                    <input id="email" name="email" type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Heslo</label>
+                                    <input id="password" name="password" type="password" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="clanky-tlacitko align-self-start">Přihlásit se</button>
+                                </div>
+                                <!-- Na konci formuláře odkazujeme na stránku s registračním formulářem. -->
+                                <div class="form-group">
+                                    <p>
+                                        <a th:href="@{/account/register}">Registrace</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+        </article>
+
+        <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    </body>
+</html>

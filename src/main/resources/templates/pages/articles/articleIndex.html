@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+    <header th:replace="~{fragments/layout.html :: header}"></header>
+
+    <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div> <!-- barva je definována v CSS souboru styles.css! -->
+
+    <div class="py-2 flash-message message-info" th:text="${info}" th:if="${info}"></div> <!-- barva je definována v CSS souboru styles.css! -->
+
+    <div class="py-2 flash-message message-error" th:text="${error}" th:if="${error}"></div> <!-- barva je definována v CSS souboru styles.css! -->
+
+    <article>
+        <div>
+            <header>
+                <h1>Seznam článků</h1>
+            </header>
+
+            <section>
+                <p sec:authorize="hasRole('ADMIN')"> <!-- atribut, díky němuž se vykreslí tlačítka pouze pro uživatele s rolí Administrátor -->
+                    <a class="clanky-tlacitko" th:href="@{/articles/createArticle}">Vytvořit nový</a>
+                </p>
+
+                <ul class="list-group" id="clanky"> <!-- ul - unorder list, HTML tag pro vytvoření neřazeného seznamu -->
+                    <li th:each="article: ${articles}" class="list-group-item"> <!-- li - list item, HTML tag pro položku seznamu -->
+                                                                                <!-- th:each thymeleaf tag, pro iterování (procházení) nad položkami (for each) -->
+                   <!-- <div th:object="${article}"> s použitím th:object, lekce 6 JAVA PRO SpringBoot Blog -->
+                   <!-- <h2><a th:href="@{'/articles/' + *{articleId}}"         th:text="*{title}"></a></h2> -->
+                        <h2><a th:href="@{'/articles/' + ${article.articleId}}" th:text="${article.title}"></a></h2>
+                        <p th:text="${article.description}"></p>
+                        <p>
+                     <!--   <a th:href="@{'/articles/editArticle/' +         *{articleId}}">Upravit</a> | -->
+                            <a th:href="@{'/articles/editArticle/' + ${article.articleId}}">Upravit</a> |
+                     <!--   <a th:href="@{'/articles/deleteArticle/' +         *{articleId}}">Upravit</a> | -->
+                            <a th:href="@{'/articles/deleteArticle/' + ${article.articleId}}">Odstranit</a>
+                        </p>
+                    <!-- </div> -->
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </article>
+
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+
+</html>

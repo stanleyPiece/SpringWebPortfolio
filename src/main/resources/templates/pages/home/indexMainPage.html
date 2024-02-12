@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+    <body>
+
+        <header th:replace="~{fragments/layout.html :: header}"></header>
+
+        <article>
+            <header>
+                <h1>O mně</h1>
+            </header>
+            <section>
+
+                <img th:src="@{/images/avatar.jpg}" class="avatar" alt="Stanislav Kus"/>
+                <p>Vítejte na mém prvním webu. Doufám, že je to začátek cesty k nečemu úžasnému.</p>
+                <p>Jmenuji se Stanislav Kus a je mi 39 let. Dosud jsem pracoval jako překladatel z angličtiny u jedné IT firmy.
+                   Kontaktovat mě můžete na <a th:href="@{/contact}" target="_blank">kontaktní stránce</a>.</p>
+                <p>Rád zahradničím a čtu historické knihy.<br/>
+                    Mým hlavním koníčkem jsou jazyky, především <strong>angličtina</strong> a <strong>němčina</strong>.</p>
+                <p>Nyní jsem se rozhodl věnovat se i <a th:href="@{https://cs.wikipedia.org/wiki/Programov%C3%A1n%C3%AD}" target="_blank"><em>programování</em></a>.</p>
+                <p class="tlacitko-odstavec"><a th:href="@{/references}" class="reference-tlacitko">Moje reference</a></p>
+                <div class="cistic"></div>
+            </section>
+        </article>
+
+        <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    </body>
+</html>

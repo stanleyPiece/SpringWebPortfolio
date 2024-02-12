@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+    <div>
+        <section>
+            <p th:utext="${article.content}"></p> <!-- pomocí th:utext říkáme, že chceme, aby se případný HTML kód v textu článku zpracoval jako HTML kód -->
+                                                  <!-- na rozdíl od th:text, kdy se případný HTML text vypíše jako obyčejný text = nepřevede se na prvky HTML -->
+
+            <a class="clanky-tlacitko" th:href="@{/articles}">Zpět na seznam</a>
+        </section>
+    </div>
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+
+</html>

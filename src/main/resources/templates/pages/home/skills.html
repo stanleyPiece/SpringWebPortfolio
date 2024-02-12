@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+    <body>
+        <header th:replace="~{fragments/layout.html :: header}"></header>
+
+        <article>
+            <header>
+                <h1>Dovednosti</h1>
+            </header>
+            <section>
+                <p>
+                <table id="dovednosti">
+                        <tbody>
+                            <tr class="centrovany">
+                                <td>
+                                    <img th:src="@{/images/html.png}" alt="html"/>
+                                </td>
+                                <td>
+                                    <img th:src="@{/images/java.png}" alt="java"/>
+                                </td>
+                                <td>
+                                    <img th:src="@{/images/uk_flag.png}" alt="uk"/>
+                                </td>
+                                <td>
+                                    <img th:src="@{/images/germany_flag.png}" alt="germany"/>
+                                </td>
+                            </tr>
+                            <td>
+                                <h2>HTML</h2>
+                                <p>S HTML začínám a umím vytvořit jednoduché webové stránky, jako jsou tyto.</p>
+                            </td>
+                            <td>
+                                <h2>Java</h2>
+                                <p>Javu se učím z tutoriálů na ITnetwork.cz, dokáži tvořit jednoduché konzolové i okenní aplikace a programovat objektově.</p>
+                            </td>
+                            <td>
+                                <h2>Angličtina</h2>
+                                Aktivně. Více než 14 let jsem se zabýval překladem produktů IBM z AJ do ČJ.
+                            <td>
+                                <h2>Nemčina</h2>
+                                <p>Pasivně.</p>
+                            </td>
+                        </tbody>
+            </table></p>
+                <p><a th:href="@{/}">Zpět na hlavní stranu</a></p>
+            </section>
+        </article>
+        <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8">
+        <meta name="description" content="Osobní portfolio programátora Standy Kuse."/>
+        <meta name="keywords" content="portfolio, programátor, Standa Kus"/>
+        <meta name="author" content="Stanislav Kus"/>
+        <title>Moje první webová stránka</title>
+
+        <link rel="stylesheet" th:href="@{/styles/lightbox.min.css}" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/styles/styles.css}" type="text/css"/>
+        <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector: "textarea[id*=content]",
+                entities: "160,nbsp",
+                entity_encoding: "named",
+                entity_encoding: "raw"
+            });
+        </script>
+    </head>
+    <body>
+
+        <header th:fragment="header">
+            <div id="logo">
+                <h1>Stanislav <span>Kus</span></h1>
+                <small>programátor</small>
+            </div>
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Domů</a></li>
+                    <li><a th:href="@{/articles}">Články</a></li>
+                    <li><a th:href="@{/skills}">Dovednosti</a></li>
+                    <li><a th:href="@{/references}">Reference</a></li>
+                    <li><a class="kontakt-tlacitko" th:href="@{contact}">Kontakt</a></li>
+                    <!-- knihovna Thymeleaf Extras -->
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/account/login}">Přihlásit se</a></li> <!-- vykreslíme pouze nepřihlášeným uživatelům -->
+                    <li sec:authorize="isAnonymous()"><a th:href="@{/account/register}">Registrovat</a></li> <!-- vykreslíme pouze nepřihlášeným uživatelům -->
+                    <li>
+                        <form method="post" th:action="@{/account/logout}"> <!-- přihlášeným uživatelům vykreslíme tlačítko pro odhlášení -->
+                            <!-- Tlačítko "Odhlásit se" je ve formuláři, protože akce pro odhlašování ve Spring ve výchozím nastavení odpovídá pouze na [POST] HTTP požadavky. -->
+                            <button class="btn text-white" sec:authorize="isAuthenticated()">Odhlásit se</button>
+
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <footer th:fragment="footer">
+            Vytvořil &copy;Stanislav Kus 2024 pro <a href="https://itnetwork.cz">itnetwork.cz</a>
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments/layout.html :: head}"></head>
+    <body>
+        <header th:replace="~{fragments/layout.html :: header}"></header>
+
+        <article>
+             <section>
+                <p>
+                  <img th:src="@{/images/e-mail.png}" alt="e-mail" class="vlevo"/>
+                </p>
+                <p>
+                  Pokud mi chcete něco sdělit, napište mi e-mail na <strong>stanislav (tečka) kus (zavináč) seznam (tečka) cz</strong><br/>
+                  nebo využijte níže uvedený formulář.
+                </p>
+                <p class="centrovany">
+                  <iframe width="500px" height="220px"
+                          src="https://www.itnetwork.cz/api/Service-MailForm/6456538edc9b33.19770229">
+                  </iframe>
+                </p>
+                <div class="cistic"></div>
+                <p><a th:href="@{/}">Zpět na hlavní stranu</a></p>
+            </section>
+        </article>
+
+        <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+    </body>
+</html>
