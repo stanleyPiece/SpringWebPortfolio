@@ -9,7 +9,6 @@
     font-weight: bold;
 }
 
-/* Úpravy provedené v kurzu Java PRO – SpringBoot Blog */
 a:hover {
     color:currentColor
 }
@@ -52,9 +51,6 @@ Flash messages
     background: #2986cc;
 }
 
-
-
-/* Úpravy provededné v kurzu Java BASIC – Moderní webdesign */
 article header {
         height: 80px;
 }
